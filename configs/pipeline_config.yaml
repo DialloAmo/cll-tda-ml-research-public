@@ -1,0 +1,88 @@
+project:
+  name: cll-tda-ml-research
+  disease: chronic lymphocytic leukemia
+  objective: dynamic biological-clinical mapping using TDA and Machine Learning
+
+paths:
+  data_raw: data/raw
+  data_interim: data/interim
+  data_processed: data/processed
+  data_external: data/external
+  data_synthetic: data/synthetic
+  results_figures: results/figures
+  results_tables: results/tables
+  results_models: results/models
+  results_reports: results/reports
+
+endpoint:
+  primary: time_to_first_treatment
+  alternatives:
+    - progression
+    - progression_free_survival
+    - treatment_response
+    - risk_group
+
+features:
+  clinical:
+    - age
+    - sex
+    - rai_stage
+    - binet_stage
+    - hemoglobin
+    - platelets
+    - lymphocytes
+  biological:
+    - beta2_microglobulin
+    - ldh
+  genetic:
+    - ighv_status
+    - tp53_mutation
+    - del_17p
+    - del_11q
+    - trisomy_12
+    - del_13q
+
+models:
+  classical:
+    - logistic_regression
+    - random_forest
+    - svm
+    - xgboost
+  survival:
+    - cox_model
+    - random_survival_forest
+  tda:
+    - persistence_landscape
+    - persistence_image
+    - betti_curve
+  hybrid:
+    - classical_features_plus_tda_features
+
+evaluation:
+  classification:
+    - auc
+    - accuracy
+    - f1
+    - recall
+    - precision
+    - calibration
+  survival:
+    - c_index
+    - brier_score
+  validation:
+    - stratified_cross_validation
+    - repeated_cross_validation
+    - ablation_study
+
+interpretation:
+  methods:
+    - permutation_importance
+    - shap
+    - pca
+    - umap
+  clinical_axes:
+    - ighv_status
+    - tp53_mutation
+    - del_17p
+    - rai_stage
+    - binet_stage

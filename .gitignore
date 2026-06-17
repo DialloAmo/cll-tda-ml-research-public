@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+
+# Environments
+.venv/
+venv/
+env/
+.env
+.env.*
+
+# Jupyter
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# Local backups
+.local_backups/
+
+# Sensitive configs
+configs/private_config.yaml
+
+# Data - never push hospital or derived private data
+data/raw/*
+data/interim/*
+data/processed/*
+data/external/*
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!data/external/.gitkeep
+
+# Synthetic data can be used later, but keep it controlled in the private repo
+data/synthetic/*
+!data/synthetic/.gitkeep
+
+# Generated outputs
+results/figures/*
+results/tables/*
+results/models/*
+results/reports/*
+!results/figures/.gitkeep
+!results/tables/.gitkeep
+!results/models/.gitkeep
+!results/reports/.gitkeep
+
+# Legacy generated folders
+figures/*
+reports/*
+!figures/.gitkeep
+!reports/.gitkeep
